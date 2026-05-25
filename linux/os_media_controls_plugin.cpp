@@ -1184,7 +1184,7 @@ void os_media_controls_plugin_register_with_registrar(FlPluginRegistrar* registr
   g_autoptr(FlStandardMethodCodec) method_codec = fl_standard_method_codec_new();
   plugin->method_channel = fl_method_channel_new(
       fl_plugin_registrar_get_messenger(registrar),
-      "com.edde746.os_media_controls/methods",
+      "com.dkmcgowan.os_media_controls/methods",
       FL_METHOD_CODEC(method_codec));
   fl_method_channel_set_method_call_handler(
       plugin->method_channel,
@@ -1196,7 +1196,7 @@ void os_media_controls_plugin_register_with_registrar(FlPluginRegistrar* registr
   g_autoptr(FlStandardMethodCodec) event_codec = fl_standard_method_codec_new();
   plugin->event_channel = fl_event_channel_new(
       fl_plugin_registrar_get_messenger(registrar),
-      "com.edde746.os_media_controls/events",
+      "com.dkmcgowan.os_media_controls/events",
       FL_METHOD_CODEC(event_codec));
   fl_event_channel_set_stream_handlers(
       plugin->event_channel,

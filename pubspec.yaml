@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.edde746.os_media_controls
+        package: com.dkmcgowan.os_media_controls
         pluginClass: OsMediaControlsPlugin
       ios:
         pluginClass: OsMediaControlsPlugin

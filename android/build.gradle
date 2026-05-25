@@ -1,4 +1,4 @@
-group 'com.edde746.os_media_controls'
+group 'com.dkmcgowan.os_media_controls'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.edde746.os_media_controls'
+    namespace 'com.dkmcgowan.os_media_controls'
     compileSdkVersion 33
 
     compileOptions {

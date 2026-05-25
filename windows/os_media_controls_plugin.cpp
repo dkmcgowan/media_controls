@@ -14,9 +14,6 @@
 #include <DispatcherQueue.h>
 #include <commctrl.h>
 
-// Declare SetCurrentProcessExplicitAppUserModelID manually to avoid header conflicts
-extern "C" HRESULT WINAPI SetCurrentProcessExplicitAppUserModelID(_In_ PCWSTR AppID);
-
 // Subclass ID for our window hook
 #define SMTC_SUBCLASS_ID 1
 
@@ -41,12 +38,12 @@ void OsMediaControlsPlugin::RegisterWithRegistrar(
     flutter::PluginRegistrarWindows *registrar) {
   auto method_channel =
       std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "com.edde746.os_media_controls/methods",
+          registrar->messenger(), "com.dkmcgowan.os_media_controls/methods",
           &flutter::StandardMethodCodec::GetInstance());
 
   auto event_channel =
       std::make_unique<flutter::EventChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "com.edde746.os_media_controls/events",
+          registrar->messenger(), "com.dkmcgowan.os_media_controls/events",
           &flutter::StandardMethodCodec::GetInstance());
 
   auto plugin = std::make_unique<OsMediaControlsPlugin>(registrar);
@@ -78,9 +75,6 @@ void OsMediaControlsPlugin::RegisterWithRegistrar(
 OsMediaControlsPlugin::OsMediaControlsPlugin(
     flutter::PluginRegistrarWindows *registrar)
     : registrar_(registrar) {
-
-  // Set AppUserModelId for the process - helps Windows identify the app in SMTC
-  SetCurrentProcessExplicitAppUserModelID(L"com.edde746.os_media_controls.example");
 
   // Get main window handle and subclass it for event dispatching
   auto view = registrar_->GetView();
@@ -240,7 +234,6 @@ void OsMediaControlsPlugin::InitializeSMTCOnThread() {
     // Initialize display updater with media type
     auto updater = smtc_.DisplayUpdater();
     updater.Type(MediaPlaybackType::Music);
-    updater.AppMediaId(L"com.edde746.os_media_controls");
     updater.Update();
 
     // Enable SMTC

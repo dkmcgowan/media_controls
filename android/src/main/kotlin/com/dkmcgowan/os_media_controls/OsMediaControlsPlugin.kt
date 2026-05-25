@@ -1,4 +1,4 @@
-package com.edde746.os_media_controls
+package com.dkmcgowan.os_media_controls
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -40,13 +40,13 @@ class OsMediaControlsPlugin: FlutterPlugin, MethodChannel.MethodCallHandler,
 
         methodChannel = MethodChannel(
             binding.binaryMessenger,
-            "com.edde746.os_media_controls/methods"
+            "com.dkmcgowan.os_media_controls/methods"
         )
         methodChannel.setMethodCallHandler(this)
 
         eventChannel = EventChannel(
             binding.binaryMessenger,
-            "com.edde746.os_media_controls/events"
+            "com.dkmcgowan.os_media_controls/events"
         )
         eventChannel.setStreamHandler(this)
 

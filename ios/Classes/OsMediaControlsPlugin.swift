@@ -13,11 +13,11 @@ public class OsMediaControlsPlugin: NSObject, FlutterPlugin, FlutterStreamHandle
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let methodChannel = FlutterMethodChannel(
-            name: "com.edde746.os_media_controls/methods",
+            name: "com.dkmcgowan.os_media_controls/methods",
             binaryMessenger: registrar.messenger()
         )
         let eventChannel = FlutterEventChannel(
-            name: "com.edde746.os_media_controls/events",
+            name: "com.dkmcgowan.os_media_controls/events",
             binaryMessenger: registrar.messenger()
         )
 

@@ -51,10 +51,10 @@ export 'src/media_control_event.dart';
 /// ```
 class OsMediaControls {
   static const MethodChannel _methodChannel = MethodChannel(
-    'com.edde746.os_media_controls/methods',
+    'com.dkmcgowan.os_media_controls/methods',
   );
   static const EventChannel _eventChannel = EventChannel(
-    'com.edde746.os_media_controls/events',
+    'com.dkmcgowan.os_media_controls/events',
   );
 
   static Stream<MediaControlEvent>? _eventStream;
